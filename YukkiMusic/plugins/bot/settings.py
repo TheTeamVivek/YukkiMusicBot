@@ -100,7 +100,7 @@ async def gotohome(client, CallbackQuery: CallbackQuery, _):
     out = private_panel(_, app.username, OWNER)
     await CallbackQuery.edit_message_caption(
         caption=_["start_2"].format(CallbackQuery.from_user.mention, app.mention))
-    )
+    
 
 
     await CallbackQuery.edit_message_reply_markup(reply_markup=InlineKeyboardMarkup(out))
