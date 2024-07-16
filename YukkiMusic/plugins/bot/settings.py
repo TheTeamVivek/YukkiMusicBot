@@ -85,6 +85,25 @@ async def settings_cb(client, CallbackQuery, _):
         reply_markup=InlineKeyboardMarkup(buttons),
     )
 
+fromhelptomain
+
+@app.on_callback_query(filters.regex("fromhelptomain") & ~BANNED_USERS)
+@languageCB
+async def gotohome(client, CallbackQuery: CallbackQuery, _):
+    try:
+        await app.resolve_peer(OWNER_ID[0])
+        OWNER = OWNER_ID[0]
+    except:
+        OWNER = None
+
+  
+    out = private_panel(_, app.username, OWNER)
+    await CallbackQuery.edit_message_caption(
+        caption=_["start_2"].format(CallbackQuery.from_user.mention, app.mention))
+    )
+
+
+    await CallbackQuery.edit_message_reply_markup(reply_markup=InlineKeyboardMarkup(out))
 
 @app.on_callback_query(filters.regex("settingsback_helper") & ~BANNED_USERS)
 @languageCB
