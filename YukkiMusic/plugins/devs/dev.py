@@ -1,16 +1,3 @@
-#
-# Copyright (C) 2024-2025 by TeamYukki@Github, < https://github.com/TeamYukki >.
-#
-# This file is part of < https://github.com/TeamYukki/YukkiMusicBot > project,
-# and is released under the MIT License.
-# Please see < https://github.com/TeamYukki/YukkiMusicBot/blob/master/LICENSE >
-#
-# All rights reserved.
-#
-# This aeval and sh module is taken from < https://github.com/TheHamkerCat/WilliamButcherBot >
-# Credit goes to TheHamkerCat.
-#
-
 import os
 import re
 import subprocess
@@ -19,12 +6,11 @@ import traceback
 from inspect import getfullargspec
 from io import StringIO
 from time import time
-
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-
 from YukkiMusic import app
-from YukkiMusic.misc import SUDOERS
+from config import OWNER_ID
+from Murali import Owner
 
 
 async def aexec(code, client, message):
@@ -41,14 +27,21 @@ async def edit_or_reply(msg: Message, **kwargs):
     await func(**{k: v for k, v in kwargs.items() if k in spec})
 
 
-@app.on_message(
-    filters.command("eval") & SUDOERS & ~filters.forwarded & ~filters.via_bot
+@app.on_edited_message(
+    filters.command("eval")
+    & filters.user(Owner)
+    & ~filters.forwarded
+    & ~filters.via_bot
 )
-async def executor(client, message):
+@app.on_message(
+    filters.command("eval")
+    & filters.user(Owner)
+    & ~filters.forwarded
+    & ~filters.via_bot
+)
+async def executor(client: app, message: Message):
     if len(message.command) < 2:
-        return await edit_or_reply(
-            message, text="__Nigga Give me some command to execute.__"
-        )
+        return await edit_or_reply(message, text="<b>ᴡʜᴀᴛ ʏᴏᴜ ᴡᴀɴɴᴀ ᴇxᴇᴄᴜᴛᴇ ᴍᴀɴ ?</b>")
     try:
         cmd = message.text.split(" ", maxsplit=1)[1]
     except IndexError:
@@ -67,20 +60,20 @@ async def executor(client, message):
     stderr = redirected_error.getvalue()
     sys.stdout = old_stdout
     sys.stderr = old_stderr
-    evaluation = ""
+    evaluation = "\n"
     if exc:
-        evaluation = exc
+        evaluation += exc
     elif stderr:
-        evaluation = stderr
+        evaluation += stderr
     elif stdout:
-        evaluation = stdout
+        evaluation += stdout
     else:
-        evaluation = "Success"
-    final_output = f"**OUTPUT**:\n```{evaluation.strip()}```"
+        evaluation += "Success"
+    final_output = f"<b>⥤ ʀᴇsᴜʟᴛ :</b>\n<pre language='python'>{evaluation}</pre>"
     if len(final_output) > 4096:
         filename = "output.txt"
         with open(filename, "w+", encoding="utf8") as out_file:
-            out_file.write(str(evaluation.strip()))
+            out_file.write(str(evaluation))
         t2 = time()
         keyboard = InlineKeyboardMarkup(
             [
@@ -94,7 +87,7 @@ async def executor(client, message):
         )
         await message.reply_document(
             document=filename,
-            caption=f"**INPUT:**\n`{cmd[0:980]}`\n\n**OUTPUT:**\n`Attached Document`",
+            caption=f"<b>⥤ ᴇᴠᴀʟ :</b>\n<code>{cmd[0:980]}</code>\n\n<b>⥤ ʀᴇsᴜʟᴛ :</b>\nAttached Document",
             quote=False,
             reply_markup=keyboard,
         )
@@ -133,7 +126,7 @@ async def forceclose_command(_, CallbackQuery):
     if CallbackQuery.from_user.id != int(user_id):
         try:
             return await CallbackQuery.answer(
-                "You're not allowed to close this.", show_alert=True
+                "» ɪᴛ'ʟʟ ʙᴇ ʙᴇᴛᴛᴇʀ ɪғ ʏᴏᴜ sᴛᴀʏ ɪɴ ʏᴏᴜʀ ʟɪᴍɪᴛs ʙᴀʙʏ.", show_alert=True
             )
         except:
             return
@@ -144,10 +137,21 @@ async def forceclose_command(_, CallbackQuery):
         return
 
 
-@app.on_message(filters.command("sh") & SUDOERS & ~filters.forwarded & ~filters.via_bot)
-async def shellrunner(client, message):
+@app.on_edited_message(
+    filters.command("sh")
+    & filters.user(Owner)
+    & ~filters.forwarded
+    & ~filters.via_bot
+)
+@app.on_message(
+    filters.command("sh")
+    & filters.user(Owner)
+    & ~filters.forwarded
+    & ~filters.via_bot
+)
+async def shellrunner(_, message: Message):
     if len(message.command) < 2:
-        return await edit_or_reply(message, text="**Usage:**\n/sh git pull")
+        return await edit_or_reply(message, text="<b>ᴇxᴀᴍᴩʟᴇ :</b>\n/sh git pull")
     text = message.text.split(None, 1)[1]
     if "\n" in text:
         code = text.split("\n")
@@ -161,9 +165,8 @@ async def shellrunner(client, message):
                     stderr=subprocess.PIPE,
                 )
             except Exception as err:
-                print(err)
-                await edit_or_reply(message, text=f"**ERROR:**\n```{err}```")
-            output += f"**{code}**\n"
+                await edit_or_reply(message, text=f"<b>ERROR :</b>\n<pre>{err}</pre>")
+            output += f"<b>{code}</b>\n"
             output += process.stdout.read()[:-1].decode("utf-8")
             output += "\n"
     else:
@@ -185,7 +188,7 @@ async def shellrunner(client, message):
                 tb=exc_tb,
             )
             return await edit_or_reply(
-                message, text=f"**ERROR:**\n```{''.join(errors)}```"
+                message, text=f"<b>ERROR :</b>\n<pre>{''.join(errors)}</pre>"
             )
         output = process.stdout.read()[:-1].decode("utf-8")
     if str(output) == "\n":
@@ -194,13 +197,14 @@ async def shellrunner(client, message):
         if len(output) > 4096:
             with open("output.txt", "w+") as file:
                 file.write(output)
-            await client.send_document(
+            await app.send_document(
                 message.chat.id,
                 "output.txt",
                 reply_to_message_id=message.id,
-                caption="`Output Ye Aya Dekho !`",
+                caption="<code>Output</code>",
             )
             return os.remove("output.txt")
-        await edit_or_reply(message, text=f"**OUTPUT:**\n```{output}```")
+        await edit_or_reply(message, text=f"<b>OUTPUT :</b>\n<pre>{output}</pre>")
     else:
-        await edit_or_reply(message, text="**OUTPUT: **\n`No output`")
+        await edit_or_reply(message, text="<b>OUTPUT :</b>\n<code>None</code>")
+    await message.stop_propagation()
