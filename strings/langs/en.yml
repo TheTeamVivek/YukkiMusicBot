@@ -256,12 +256,17 @@ S_B_7 : "👤 Bot Owner"
 S_B_8 : "🔎 How to Use? Commands Menu."
 
 #Help 
-H_B_1 : "Admin Commands"
-H_B_2 : "Play Commands"
-H_B_3 : "Bot Commands"
-H_B_4 : "Extra Commands"
-H_B_5 : "Close Menu"
-H_B_6 : "SudoUser Commands"
+
+H_B_1 : "Admin"
+H_B_2 : "Auth"
+H_B_3 : "Ban"
+H_B_4 : "Bot"
+H_B_5 : "Gcast"
+H_B_6 : "Play"
+H_B_7 : "Settings"
+H_B_8 : "Stats"
+H_B_9 : "Sudo"
+
 
 #PlayMode
 PM_B_1 : "DirectPlay"
