@@ -173,9 +173,9 @@ HELP_9 ="""🔰**<u>ADD & REMOVE SUDO USERS :</u>**
 /usage - Dyno Usage.
 
 🌐**<u>CONFIG VARS:</u>**
-/get_var - Get a var from Heroku or .env.
+/get_var - Get a var from Heroku or .env
 /del_var - Delete any var on Heroku or .env.
-/set_var [Var Name] [Value] - Set a Var or Update a Var on heroku or .env. Seperate Var and its Value with a space.
+/set_var [Var Name] [Value] - Set or Update a Var on heroku or .env
 
 🤖**<u>BOT COMMANDS:</u>**
 
@@ -183,18 +183,20 @@ HELP_9 ="""🔰**<u>ADD & REMOVE SUDO USERS :</u>**
 /update - Update Bot.
 /speedtest - Check server speeds
 /maintenance [enable / disable] 
-/logger [enable / disable] - Bot logs the played queries in log group.
-/get_log [Number of Lines] - Get logs  from heroku or vps. Works for both.
+/logger [enable / disable] - Log played queries in log group.
+/get_log [Number of Lines] - Get logs from Heroku or VPS.
 
-/autoend [enable|disable] - Enable Auto stream end after 3 mins if no one is listening Assistant Will leave voice chat
-
+/autoend [enable|disable] - End Stream after 3 mins if no one is listening.
 
 🎥**<u>VIDEOCALLS FUNCTION:</u>**
-/set_video_limit [Number of Chats] - Set a maximum Number of Chats allowed for Video Calls at a time. Default to 3 chats.
-/videomode [download|m3u8] - If download mode is enabled, Bot will download videos instead of playing them in M3u8 form. ByDefault to M3u8. You can use download mode when any query doesnt plays in m3u8 mode.
 
-⚡️**<u>PRIVATE BOT FUNCTION:</u>**
-/authorize [CHAT_ID] - Allow a chat for using your bot.
+/set_video_limit [Number of Chats] - Set max video call at a time. Default to 3 chats.
+
+/videomode [download|m3u8] - If download mode is enabled, Bot will download videos instead of playing them in M3u8 form. ByDefault to M3u8. You can use download mode when any query doesn't plays in m3u8 mode.
+
+⚡️<u>**PRIVATE BOT FUNCTION:**</u>
+/authorize [CHAT_ID] - Allow a chat to use your bot.
 /unauthorize [CHAT_ID] - Disallow a chat from using your bot.
 /authorized - Check all allowed chats of your bot.
+
 """
