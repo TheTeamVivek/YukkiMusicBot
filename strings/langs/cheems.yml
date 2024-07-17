@@ -245,12 +245,16 @@ S_B_7 : "👤 Bot Owner"
 S_B_8 : "🔎 How to Use? Commands Menu."
 
 #Help 
-H_B_1 : "Amdmin Commands"
-H_B_2 : "Plamy Commands"
-H_B_3 : "Bomt Commands"
-H_B_4 : "Emxtra Commands"
-H_B_5 : "Clomse Menu"
-H_B_6 : "Sumdo Umser Commands"
+H_B_1 : "Admeen"
+H_B_2 : "Authen"
+H_B_3 : "Bun"
+H_B_4 : "Bork"
+H_B_5 : "Gcast"
+H_B_6 : "Pley"
+H_B_7 : "Settins"
+H_B_8 : "Statz"
+H_B_9 : "Soodo"
+
 
 #PlayMode
 PM_B_1 : "DimrectPlay"
