@@ -196,4 +196,5 @@ HELP_9 ="""🔰**<u>ADD & REMOVE SUDO USERS :</u>**
 ⚡️**<u>PRIVATE BOT FUNCTION:</u>**
 /authorize [CHAT_ID] - Allow a chat for using your bot.
 /unauthorize [CHAT_ID] - Disallow a chat from using your bot.
-/authorized - Check all allowed chats of your 
+/authorized - Check all allowed chats of your bot.
+"""
