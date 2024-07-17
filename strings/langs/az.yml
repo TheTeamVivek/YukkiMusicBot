@@ -403,7 +403,7 @@ pbot_8 : "Lütfən gözləyin... Səlahiyyətli söhbətlər alınır."
 pbot_9 : "**<b>Gətirilmiş Söhbətlər:</b>**\n\n"
 pbot_10 : "Şəxsi Söhbət"
 pbot_11 : "Heç bir icazəli söhbət tapılmadı"
-pbot_12 : "Şəxsi Bot Rejimi deaktiv edilib.\n\nBotunuzu şəxsi bot kimi istifadə etmək üçün **PRIVATE_BOT_MODE** = **True** təyin etdiyinizə əmin olun."
+pbot_12 : "Şəxsi Bot Rejimi deaktiv edilib.\n\nBotunuzu şəxsi bot kimi istifadə etmək üçün **PRIVATE_BOT_MODE** : **True** təyin etdiyinizə əmin olun."
 pbot_13 : "\n**<b>Gətirilməmiş Söhbətlər:</b>**\n\n"
 
 

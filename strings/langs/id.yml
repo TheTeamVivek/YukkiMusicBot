@@ -424,7 +424,7 @@ pbot_8 : "Mohon tunggu.... Mengambil Obrolan Resmi."
 pbot_9 : "**<b>Obrolan yang Diambil:</b>**\n\n"
 pbot_10 : "Obrolan Pribadi"
 pbot_11 : "Tidak ditemukan Obrolan Resmi"
-pbot_12 : "Mode Bot Pribadi dinonaktifkan.\n\nUntuk menggunakan bot Anda sebagai bot pribadi, pastikan untuk menyetel **PRIVATE_BOT_MODE** = **Benar**"
+pbot_12 : "Mode Bot Pribadi dinonaktifkan.\n\nUntuk menggunakan bot Anda sebagai bot pribadi, pastikan untuk menyetel **PRIVATE_BOT_MODE** : **Benar**"
 pbot_13 : "\n**<b>Obrolan Tidak Diambil:</b>**\n\n"
 
 
