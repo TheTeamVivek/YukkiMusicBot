@@ -241,12 +241,15 @@ S_B_7 : "👤 Bot Sahibi"
 S_B_8 : "🔎 Necə İstifadə Edilir? Komandalar Menyu."
 
 #Help 
-H_B_1 : "Admin Əmrləri"
-H_B_2 : "Oynatma Əmrləri"
-H_B_3 : "Bot Əmrləri"
-H_B_4 : "Əlavə əmrlər"
-H_B_5 : "Menyunu bağla"
-H_B_6 : "SudoUser Əmrləri"
+H_B_1 : "İdarəetmə"
+H_B_2 : "Təsdiqləmə"
+H_B_3 : "Ban"
+H_B_4 : "Bot"
+H_B_5 : "Kütləvi yayım"
+H_B_6 : "Oynat"
+H_B_7 : "Parametrlər"
+H_B_8 : "Statistika"
+H_B_9 : "Sudo"
 
 #PlayMode
 PM_B_1: "Birbaşa Oyun"
