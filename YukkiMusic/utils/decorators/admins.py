@@ -7,8 +7,8 @@
 #
 # All rights reserved.
 
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from pyrogram.types import ChatPrivileges
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ChatPrivileges
+from pyrogram.enums import ChatType
 from config import adminlist
 from strings import get_string
 from YukkiMusic import app
@@ -137,7 +137,7 @@ def ActualAdminCB(mystic):
             _ = get_string(language)
         except:
             _ = get_string("en")
-        if CallbackQuery.message.chat.type == "private":
+        if CallbackQuery.message.chat.type == ChatType.PRIVATE:
             return await mystic(client, CallbackQuery, _)
         is_non_admin = await is_nonadmin_chat(CallbackQuery.message.chat.id)
         if not is_non_admin:
