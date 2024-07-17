@@ -103,7 +103,7 @@ HELP_5 = """
 
 #PLAY
 
-HELP_7 = """✅<u>**Play Commands:**</u>
+HELP_6 = """✅<u>**Play Commands:**</u>
 
 Available Commands = play , vplay , cplay
 
@@ -125,38 +125,47 @@ ForcePlay Commands = playforce , vplayforce , cplayforce
 /deleteplaylist - Delete any saved music in your playlist
 /play  - Start playing Your Saved Playlist from Servers."""
 
+#SETTINGS
 
-
-HELP_6 = """✅<u>**Extra  Commands:**</u>
+HELP_7 = """✅<u>**Settings Commands:**</u>
 
 ✅<u>**Group Settings:**</u>
 /settings - Get a complete group's settings with inline buttons
 
 🔗 **Options in Settings:**
 
-1️⃣ You can set **Audio Quality** you want to stream on voice chat.
+1️⃣ Set **Audio Quality** for voice chat.
 
-2️⃣ You can set **Video Quality** you want to stream on voice chat.
+2️⃣ Set **Video Quality** for voice chat.
 
 3️⃣ **Auth Users**:- You can change admin commands mode from here to everyone or admins only. If everyone, anyone present in you group will be able to use admin commands(like /skip, /stop etc)
 
-4️⃣ **Clean Mode:** When enabled deletes the bot's messages after 5 mins from your group to make sure your chat remains clean and good.
+4️⃣ **Clean Mode:** Delete The bot messages after 5 minutes to keep chat clean and good
 
-5️⃣ **Command Clean** : When activated, Bot will delete its executed commands (/play, /pause, /shuffle, /stop etc) immediately.
+5️⃣ **Command Clean** : When activated, Bot will delete commands (/play, /pause, /shuffle, /stop etc) immediately.
 
 6️⃣ **Play Settings:**
 
-/playmode - Get a complete play settings panel with buttons where you can set your group's play settings. 
+/playmode - Get a complete play settings panel
 
-<u>Options in playmode:</u>
+<u>Playmode:</u>
 
 1️⃣ **Search Mode** [Direct or Inline] - Changes your search mode while you give /play mode. 
 
-2️⃣ **Admin Commands** [Everyone or Admins] - If everyone, anyone present in you group will be able to use admin commands(like /skip, /stop etc)
+2️⃣ **Admin Commands** [Everyone or Admins] - If everyone, anyone can  be able to use admin commands(like /skip, /stop etc)
 
-3️⃣ **Play Type** [Everyone or Admins] - If admins, only admins present in group can play music on voice chat."""
+3️⃣ **Play Type** [Everyone or Admins] - If admins, only admins can play music on voice chat."""
 
-HELP_5 ="""🔰**<u>ADD & REMOVE SUDO USERS :</u>**
+HELP_8 = """
+
+📈**<u>STATS COMMANDS:</u>**
+/activevoice - Check active voice chats on bot.
+/activevideo - Check active video calls on bot.
+/stats - Check Bots Stats
+"""
+
+
+HELP_9 ="""🔰**<u>ADD & REMOVE SUDO USERS :</u>**
 /addsudo [Username or Reply to a user]
 /delsudo [Username or Reply to a user]
 
@@ -164,17 +173,19 @@ HELP_5 ="""🔰**<u>ADD & REMOVE SUDO USERS :</u>**
 /usage - Dyno Usage.
 
 🌐**<u>CONFIG VARS:</u>**
-/get_var - Get a config var from Heroku or .env.
+/get_var - Get a var from Heroku or .env.
 /del_var - Delete any var on Heroku or .env.
 /set_var [Var Name] [Value] - Set a Var or Update a Var on heroku or .env. Seperate Var and its Value with a space.
 
 🤖**<u>BOT COMMANDS:</u>**
+
 /reboot - Reboot your Bot. 
 /update - Update Bot.
 /speedtest - Check server speeds
 /maintenance [enable / disable] 
-/logger [enable / disable] - Bot logs the searched queries in log group.
-/get_log [Number of Lines] - Get log of your bot from heroku or vps. Works for both.
+/logger [enable / disable] - Bot logs the played queries in log group.
+/get_log [Number of Lines] - Get logs  from heroku or vps. Works for both.
+
 /autoend [enable|disable] - Enable Auto stream end after 3 mins if no one is listening Assistant Will leave voice chat
 
 
@@ -185,14 +196,4 @@ HELP_5 ="""🔰**<u>ADD & REMOVE SUDO USERS :</u>**
 ⚡️**<u>PRIVATE BOT FUNCTION:</u>**
 /authorize [CHAT_ID] - Allow a chat for using your bot.
 /unauthorize [CHAT_ID] - Disallow a chat from using your bot.
-/authorized - Check all allowed chats of your bot.
-
-
-"""
-STATS = """
-
-📈**<u>STATS COMMANDS:</u>**
-/activevoice - Check active voice chats on bot.
-/activevideo - Check active video calls on bot.
-/stats - Check Bots Stats
-"""
+/authorized - Check all allowed chats of your 
