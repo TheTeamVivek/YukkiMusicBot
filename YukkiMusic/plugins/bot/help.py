@@ -13,7 +13,7 @@ from typing import Union
 from pyrogram import filters, types
 from pyrogram.types import InlineKeyboardMarkup, Message
 
-from config import BANNED_USERS
+from config import BANNED_USERS, START_IMG_URL
 from strings import get_command, get_string, helpers
 from YukkiMusic import app
 from YukkiMusic.misc import SUDOERS
@@ -52,8 +52,10 @@ async def helper_private(
         language = await get_lang(chat_id)
         _ = get_string(language)
         keyboard = help_pannel(_)
-        await update.reply_text(_["help_1"], reply_markup=keyboard)
-
+        if START_IMG_URL:
+            await update.reply_photo(photo=START_IMG_URL,caption=_["help_1"], reply_markup=keyboard)
+        else:
+            await update.reply_text(_["help_1"], reply_markup=keyboard)
 
 @app.on_message(filters.command(HELP_COMMAND) & filters.group & ~BANNED_USERS)
 @LanguageStart
