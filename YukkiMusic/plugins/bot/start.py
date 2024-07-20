@@ -14,7 +14,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from youtubesearchpython.__future__ import VideosSearch
 
 import config
-from config import BANNED_USERS
+from config import BANNED_USERS, START_IMG_URL
 from config.config import OWNER_ID
 from strings import get_command, get_string
 from YukkiMusic import Telegram, YouTube, app
@@ -47,7 +47,10 @@ async def start_comm(client, message: Message, _):
         name = message.text.split(None, 1)[1]
         if name[0:4] == "help":
             keyboard = help_pannel(_)
-            return await message.reply_text(_["help_1"], reply_markup=keyboard)
+            if START_IMG_URL:
+                return await message.reply_photo(photo=START_IMG_URL, caption=_["help_1"], reply_markup=keyboard)
+            else:
+                return await message.reply_text(_["help_1"], reply_markup=keyboard)
         if name[0:4] == "song":
             return await message.reply_text(_["song_2"])
         if name[0:3] == "sta":
@@ -197,10 +200,10 @@ async def start_comm(client, message: Message, _):
             )
         if await is_on_off(config.LOG):
             sender_id = message.from_user.id
-            sender_name = message.from_user.first_name
+            sender_username = message.from_user.first_name or "No UserName"
             return await app.send_message(
                 config.LOG_GROUP_ID,
-                f"{message.from_user.mention} has just started Bot.\n\n**USER ID:** {sender_id}\n**USER NAME:** {sender_name}",
+                f"{message.from_user.mention} has just started Bot.\n\n**USER ID:** {sender_id}\n**USER NAME:** {sender_username}",
             )
 
 
@@ -215,11 +218,7 @@ async def testbot(client, message: Message, _):
         reply_markup=InlineKeyboardMarkup(out),
     )
 
-
-welcome_group = 2
-
-
-@app.on_message(filters.new_chat_members, group=welcome_group)
+@app.on_message(filters.new_chat_members, group=2)
 async def welcome(client, message: Message):
     chat_id = message.chat.id
     if config.PRIVATE_BOT_MODE == str(True):
