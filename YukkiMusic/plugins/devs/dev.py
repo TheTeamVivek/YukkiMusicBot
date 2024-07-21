@@ -10,7 +10,6 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from YukkiMusic import app
 from config import OWNER_ID
-from Murali import Owner
 
 
 async def aexec(code, client, message):
@@ -29,13 +28,13 @@ async def edit_or_reply(msg: Message, **kwargs):
 
 @app.on_edited_message(
     filters.command("eval")
-    & filters.user(Owner)
+    & OWNER_ID
     & ~filters.forwarded
     & ~filters.via_bot
 )
 @app.on_message(
     filters.command("eval")
-    & filters.user(Owner)
+    & OWNER_ID
     & ~filters.forwarded
     & ~filters.via_bot
 )
@@ -139,13 +138,13 @@ async def forceclose_command(_, CallbackQuery):
 
 @app.on_edited_message(
     filters.command("sh")
-    & filters.user(Owner)
+    & OWNER_ID
     & ~filters.forwarded
     & ~filters.via_bot
 )
 @app.on_message(
     filters.command("sh")
-    & filters.user(Owner)
+    & OWNER_ID
     & ~filters.forwarded
     & ~filters.via_bot
 )
