@@ -7,6 +7,7 @@
 #
 # All rights reserved.
 
+from .platforms import *
 from YukkiMusic.core.bot import YukkiBot
 from YukkiMusic.core.dir import dirr
 from YukkiMusic.core.git import git
@@ -36,7 +37,6 @@ app = YukkiBot()
 # Assistant Client
 userbot = Userbot()
 
-from .platforms import *
 
 YouTube = YouTubeAPI()
 Carbon = CarbonAPI()

@@ -53,9 +53,12 @@ async def helper_private(
         _ = get_string(language)
         keyboard = help_pannel(_)
         if START_IMG_URL:
-            await update.reply_photo(photo=START_IMG_URL,caption=_["help_1"], reply_markup=keyboard)
+            await update.reply_photo(
+                photo=START_IMG_URL, caption=_["help_1"], reply_markup=keyboard
+            )
         else:
             await update.reply_text(_["help_1"], reply_markup=keyboard)
+
 
 @app.on_message(filters.command(HELP_COMMAND) & filters.group & ~BANNED_USERS)
 @LanguageStart

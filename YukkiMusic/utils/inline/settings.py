@@ -160,6 +160,7 @@ def video_quality_markup(
     ]
     return buttons
 
+
 def cleanmode_settings_markup(
     _,
     status: Union[bool, str] = None,

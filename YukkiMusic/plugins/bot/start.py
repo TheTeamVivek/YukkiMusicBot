@@ -48,7 +48,9 @@ async def start_comm(client, message: Message, _):
         if name[0:4] == "help":
             keyboard = help_pannel(_)
             if START_IMG_URL:
-                return await message.reply_photo(photo=START_IMG_URL, caption=_["help_1"], reply_markup=keyboard)
+                return await message.reply_photo(
+                    photo=START_IMG_URL, caption=_["help_1"], reply_markup=keyboard
+                )
             else:
                 return await message.reply_text(_["help_1"], reply_markup=keyboard)
         if name[0:4] == "song":
@@ -217,6 +219,7 @@ async def testbot(client, message: Message, _):
         _["start_1"].format(message.chat.title, app.mention),
         reply_markup=InlineKeyboardMarkup(out),
     )
+
 
 @app.on_message(filters.new_chat_members, group=2)
 async def welcome(client, message: Message):

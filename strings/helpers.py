@@ -7,7 +7,7 @@
 #
 # All rights reserved.
 
-#ADMIN
+# ADMIN
 
 HELP_1 = """✅**<u>Admin Commands:</u>**
 
@@ -34,7 +34,7 @@ HELP_1 = """✅**<u>Admin Commands:</u>**
     - When activated, bot loops the current playing music to 1-10 times on voice chat. Default to 10 times.
 """
 
-#AUTH 
+# AUTH
 HELP_2 = """
 ✅<u>**Auth Users:**</u>
 Auth Users can use admin commands without admin rights in your chat.
@@ -43,7 +43,7 @@ Auth Users can use admin commands without admin rights in your chat.
 /unauth [Username] - Remove a user from AUTH LIST of the group.
 /authusers - Check AUTH LIST of the group."""
 
-#BAN
+# BAN
 
 HELP_3 = """
 ⚠️**<u>BLACKLIST CHAT FUNCTION:</u>**
@@ -62,7 +62,7 @@ HELP_3 = """
 /gbannedusers - Check Gbanned Users Lists
 
 """
-#BOT
+# BOT
 
 HELP_4 = """✅<u>**Bot Commands:**</u>
 
@@ -84,7 +84,7 @@ HELP_4 = """✅<u>**Bot Commands:**</u>
 
 /queue or /cqueue- Check Queue List of Music."""
 
-#BOROADCAST
+# BOROADCAST
 HELP_5 = """
 
 🌐**<u>BROADCAST FUNCTION:</u>**
@@ -101,7 +101,7 @@ HELP_5 = """
 
 """
 
-#PLAY
+# PLAY
 
 HELP_6 = """✅<u>**Play Commands:**</u>
 
@@ -125,7 +125,7 @@ ForcePlay Commands = playforce , vplayforce , cplayforce
 /deleteplaylist - Delete any saved music in your playlist
 /play  - Start playing Your Saved Playlist from Servers."""
 
-#SETTINGS
+# SETTINGS
 
 HELP_7 = """✅<u>**Settings Commands:**</u>
 
@@ -165,7 +165,7 @@ HELP_8 = """
 """
 
 
-HELP_9 ="""🔰**<u>ADD & REMOVE SUDO USERS :</u>**
+HELP_9 = """🔰**<u>ADD & REMOVE SUDO USERS :</u>**
 /addsudo [Username or Reply to a user]
 /delsudo [Username or Reply to a user]
 
